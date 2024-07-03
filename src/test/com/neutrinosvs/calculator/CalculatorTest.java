@@ -1,11 +1,18 @@
 package com.neutrinosvs.calculator;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorTest {
-    private final Calculator calc = new Calculator();
+
+    private Calculator calc;
+
+    @BeforeEach //multiple instances for each method; this method get called every time before each method
+    void setUp() {
+        calc = new Calculator();
+    }
 
     @Test
     public void canAddZeroPlusZero() {
@@ -20,6 +27,6 @@ public class CalculatorTest {
         assertEquals(2, sum, "Here could be a message");
 
     }
-
+    
 
 }
