@@ -20,7 +20,7 @@ public class GuessingGameTest {
     public void testSimpleWinSituation() {
         int randomNum = game.getRandomNumber();
         String message = game.guess(randomNum);
-        assertEquals("You got it", message);
+        assertEquals("You got it in 1 try", message);
 
     }
     @Test
@@ -43,7 +43,7 @@ public class GuessingGameTest {
         int[] rndNumCount = new int[11];
         for (int i = 0; i < 60; i++) {
             GuessingGame game = new GuessingGame();
-            int randomNum = game.getRandomNumber();
+            int randomNum = game.getRandomNumber(); // generating 60 random numbers
             rndNumCount[randomNum] = 1;
         }
         int sum = 0;
@@ -52,6 +52,35 @@ public class GuessingGameTest {
         }
 
         assertEquals(10, sum);
+
+    }
+
+    @Test
+    public void testFourWrongGuesses() {
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        String message = game.guess(-3);
+        assertEquals("You didn't get it and you've had four tries. Game over.", message);
+
+    }
+    @Test
+    public void testThreeWrongGuessesAndOneCorrect() {
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        int correctAnswer = game.getRandomNumber();
+        String message = game.guess(correctAnswer);
+        assertEquals("You got it in 4 tries", message);
+
+    }
+    @Test
+    public void testTwoWrongGuessesAndOneCorrect() {
+        game.guess(-3);
+        game.guess(-3);
+        int correctAnswer = game.getRandomNumber();
+        String message = game.guess(correctAnswer);
+        assertEquals("You got it in 3 tries", message);
 
     }
 }
