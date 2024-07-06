@@ -1,6 +1,7 @@
 package com.neutrinosvs.game;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -35,12 +36,12 @@ public class GuessingGameTest {
         assertEquals("You didn't get it", message);
 
     }
-    @Test
+    @RepeatedTest(5)
     public void testRandomNumberGeneration() {
         // 1 2 3 4 5 6 7 8 9 10
         // 1 1 0 1 0 1 1 1 0 1  1 = 10
         int[] rndNumCount = new int[11];
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 60; i++) {
             GuessingGame game = new GuessingGame();
             int randomNum = game.getRandomNumber();
             rndNumCount[randomNum] = 1;
