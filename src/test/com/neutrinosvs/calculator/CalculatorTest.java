@@ -27,6 +27,13 @@ public class CalculatorTest {
         assertEquals(2, sum, "Here could be a message");
 
     }
+    @Test
+    public void canAddMaxInputPlusOne() {
+        int sum = calc.add(Integer.MAX_VALUE, 1); // 2147483647
+        System.out.println(sum);
+        assertEquals(Integer.MAX_VALUE + 1L, sum, "INT can only hold 32 bits");
+
+    }
     
 
 }
