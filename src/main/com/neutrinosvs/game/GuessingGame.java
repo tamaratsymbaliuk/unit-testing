@@ -16,13 +16,15 @@ public class GuessingGame {
         } else if (counter > 4) {
             response = "Sorry, you are limited to only 4 tries. Game over.";
         } else {
-            String tooLowText = null;
+            String tooText = null;
             if (guessedNumber < getRandomNumber()) {
-                tooLowText = "- you're too low";
+                tooText = "- you're too low";
+            } else if (guessedNumber > getRandomNumber()) {
+                tooText = "- you're too high";
             } else {
-                tooLowText = "";
+                tooText = "";
             }
-            String loseText = String.format("You didn't get it %s", tooLowText).trim();
+            String loseText = String.format("You didn't get it %s", tooText).trim();
             response = guessedNumber == getRandomNumber() ? winningMsg : loseText;
         }
         return response;
