@@ -15,4 +15,8 @@ public class SavingsAccount extends Account {
     public String toString() {
         return "SavingsAccount(" + getAccountNumber() + ", Balance: " + getBalance() + ", InterestRate: " + interestRate + "%)";
     }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
 }
