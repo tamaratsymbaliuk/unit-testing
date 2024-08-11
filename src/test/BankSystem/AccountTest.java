@@ -3,6 +3,8 @@ package BankSystem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AccountTest {
@@ -33,14 +35,35 @@ class AccountTest {
 
     @Test
     void getTransactionHistory() {
+        account.deposit(50.0);
+        account.withdraw(20.0);
+        List<String> history = account.getTransactionHistory();
+
+        assertEquals(2, history.size());
+        assertTrue(history.contains("Deposited 50.0. New balance: 150.0"));
+        assertTrue(history.contains("Withdrew 20.0. New balance: 130.0"));
     }
 
     @Test
     void addTransaction() {
+        account.addTransaction("Test transaction");
+        assertEquals(1,account.getTransactionHistory().size());
+        assertEquals("Test transaction", account.getTransactionHistory().get(0));
     }
 
     @Test
     void verifyPin() {
+        // Test correct PIN
+        assertTrue(account.verifyPin("0000"));
+        // Test incorrect PIN
+        assertFalse(account.verifyPin("2222"));
+        // Test null PIN
+        assertFalse(account.verifyPin(null));
+        // Test PIN when account PIN is not set (null)
+        Account accountWithoutPin = new TestAccount("654321", 100.0, null);
+        assertFalse(accountWithoutPin.verifyPin("0000"));
+        assertFalse(accountWithoutPin.verifyPin(null));
+
     }
 
     @Test
@@ -79,5 +102,6 @@ class AccountTest {
 
     @Test
     void testToString() {
+        assertEquals("Account(123456789, Balance: 100.0)", account.toString());
     }
 }
