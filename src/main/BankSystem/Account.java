@@ -54,13 +54,14 @@ public abstract class Account implements AccountOperations {
     }
 
     @Override
-    public void deposit(double amount) {
+    public double deposit(double amount) {
         if (amount > 0) {
             balance += amount;
             System.out.println("Deposited " + amount + ". New balance: " + balance);
         } else {
             System.out.println("Deposit amount must be positive.");
         }
+        return amount;
     }
 
     @Override

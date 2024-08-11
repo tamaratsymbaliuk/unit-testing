@@ -2,7 +2,7 @@ package BankSystem;
 
 public interface AccountOperations {
 
-    void deposit(double amount);
+    double deposit(double amount);
     void withdraw(double amount);
     void changePin(String oldPin, String newPin);
 
