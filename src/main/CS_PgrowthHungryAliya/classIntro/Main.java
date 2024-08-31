@@ -8,5 +8,6 @@ public class Main {
 
         System.out.println("My copy object name is " + copy.getName());
         System.out.println("My copy object age is "+ copy.getAge());
+
     }
 }
