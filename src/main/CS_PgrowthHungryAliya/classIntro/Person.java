@@ -31,4 +31,10 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+    // Polymorphism, the same method exist in child Class
+    public void printParent() {
+        System.out.println("Oh no, no parent found");
+    }
+
+
 }
