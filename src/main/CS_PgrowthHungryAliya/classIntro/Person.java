@@ -2,6 +2,15 @@ package CS_PgrowthHungryAliya.classIntro;
 
 public class Person {
     private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
     private int age;
     // parameterized constructor
     public Person(String name, int age) {
@@ -13,5 +22,13 @@ public class Person {
     public Person(Person anotherPerson) {
         this.name = anotherPerson.name;
         this.age = anotherPerson.age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
