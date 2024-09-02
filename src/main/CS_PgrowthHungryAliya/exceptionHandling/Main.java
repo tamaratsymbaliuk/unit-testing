@@ -7,11 +7,18 @@ public class Main {
 
        try {
           int c = divide(a, b);
-       } catch (ArithmeticException e) {
+       } catch (MyException e) {
            System.out.println(e.getMessage());
        }
     }
-    public static int divide( int a, int b) {
+    /*public static int divide( int a, int b) throws ArithmeticException {
+        if (b == 0) {throw new ArithmeticException("my message");}
+        return a / b;
+    }
+     */
+
+    public static int divide( int a, int b) throws MyException {
+        if (b == 0) {throw new MyException();}
         return a / b;
     }
 
