@@ -1,7 +1,7 @@
 package chessBoard;
 
 public class Pawn extends ChessPiece {
-    private boolean hasMoved = false; // Added missing variable
+    private boolean hasMoved = false;
 
     public Pawn(Color color) {
         super(color);
