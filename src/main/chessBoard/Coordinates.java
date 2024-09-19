@@ -39,7 +39,7 @@ public class Coordinates {
         return false;
     }
 
-    private int getXForFile(char file) {
+    private int getXForFile(char file) { // a is 97
         return file - 97;
     }
 
