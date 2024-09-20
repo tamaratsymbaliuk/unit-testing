@@ -20,7 +20,7 @@ public class Coordinates {
         this.y = y;
     }
 
-    public Coordinates getOffset(int x, int y) {
+    public Coordinates withOffset(int x, int y) {
         return new Coordinates(this.x + x, this.y + y);
     }
 
