@@ -17,7 +17,7 @@ public abstract class ChessPiece {
     }
 
     protected int calcYWithDirFactor(int yOffset) {
-        int dirFactor = color == Color.WHITE ? 1 : -1;
+        int dirFactor = color == Color.WHITE ? -1 : 1; // if pawn is black -1 * -1 will result in positive offset
         return yOffset * dirFactor;
     }
 
